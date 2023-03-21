@@ -1,0 +1,19 @@
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border-bottom: 2px solid lightgray;
+}
+@media (min-width: 1000px) {
+  .headerContainer {
+    font-size: 20px;
+  }
+}
+.headerContainer a {
+  text-decoration: none;
+  color: darkblue;
+  cursor: pointer;
+}
+.headerContainer .active {
+  color: orangered;
+}/*# sourceMappingURL=Header.css.map */
