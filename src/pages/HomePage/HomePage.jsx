@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../../store/actions/productActions";
@@ -10,8 +10,10 @@ const HomePage = () => {
   const products = useSelector((state) => state.productReducer)
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts());
   }, []);
 
   return(
@@ -20,16 +22,19 @@ const HomePage = () => {
       {!products.loading && products.error ? <div>Error: {products.error}</div> : null}
       {products.data.map((product) => {
         return (
-          <Link
-            to={`/:${products.data.indexOf(product)}`}
-            key = {product.id}
-            className="homePageCard__container"
-          >
-            <ProductCard
-              title = {product.title}
-              image = {product.image}
-            />
-          </Link>
+          <>
+            <Link
+              to={`/:${products.data.indexOf(product)}`}
+              key = {product.id}
+              className="homePageCard__container"
+            >
+              <ProductCard
+                timerId={product.id}
+                title = {product.title}
+                image = {product.image}
+              />
+            </Link>
+          </>
         )
       })}
     </div>

@@ -4,17 +4,14 @@ import './SingleProduct.css'
 
 const SingleProduct = () => {
   const productId = useParams().productId.replace(':','');
-
   const singleItem = useSelector(state => state.productReducer.data[productId]);
-  const singleItemError = useSelector(state => state.productReducer.error)
-  const rating = Object.entries(singleItem.rating)
 
-
-  if (isNaN(parseInt(productId)) || singleItemError ) {
+  if (!singleItem) {
     return(
-      <h4>Ooops, it looks like we dont have that product on hand right now, try again later</h4>
-    )
-  }
+      <h1>Ooops, it looks like we dont have that product on hand right now, please try again later</h1>
+      )
+    }
+  const rating = Object.entries(singleItem.rating)
 
   return(
     <div className='singleProduct__container'>

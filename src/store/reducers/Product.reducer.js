@@ -27,5 +27,4 @@ const productSlice = createSlice({
   },
 })
 
-console.log(productSlice);
 export default productSlice.reducer;
