@@ -2,7 +2,7 @@ import './ProductCard.css'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ title, image, timerId }) => {
+const ProductCard = ({ title, image, index }) => {
 
   const [timer, setTimer] = useState(parseInt(Math.floor(Math.random() * 149) + 1));
   const [timerExpired, setTimerExpired] = useState(false);
@@ -34,7 +34,9 @@ const ProductCard = ({ title, image, timerId }) => {
       <p>{title}</p>
       <section className='productCard__footer'>
         <p className='productCard__timer'>{timer > 0 ? `⏰ ${timer} second${timer>1?'s':''} left!` : 'Time ran out! Sorry! 🤷'}</p>
-        <Link to={'/'}>
+        <Link to={`/:${index}`}
+          onClick={(e) =>handleClick(e)}
+        >
           <button
             className='productCard__button'
             type='button'

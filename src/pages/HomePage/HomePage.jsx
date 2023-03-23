@@ -29,7 +29,7 @@ const HomePage = () => {
               className="homePageCard__container"
             >
               <ProductCard
-                timerId={product.id}
+                index={products.data.indexOf(product)}
                 title = {product.title}
                 image = {product.image}
               />
