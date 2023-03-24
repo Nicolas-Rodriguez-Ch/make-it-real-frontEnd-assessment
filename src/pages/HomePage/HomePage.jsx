@@ -20,16 +20,16 @@ const HomePage = () => {
     <div className="homePage">
       {products.loading && <div>Loading... {<img src={loader} alt="loading..."></img>}</div>}
       {!products.loading && products.error ? <div>Error: {products.error}</div> : null}
-      {products.data.map((product) => {
+      {products.data.map((product, index) => {
         return (
           <>
             <Link
-              to={`/:${products.data.indexOf(product)}`}
+              to={`/products/${products.data.indexOf(product)}`}
               key = {product.id}
               className="homePageCard__container"
             >
               <ProductCard
-                index={products.data.indexOf(product)}
+                index={index}
                 title = {product.title}
                 image = {product.image}
               />

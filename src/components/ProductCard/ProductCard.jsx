@@ -34,7 +34,7 @@ const ProductCard = ({ title, image, index }) => {
       <p>{title}</p>
       <section className='productCard__footer'>
         <p className='productCard__timer'>{timer > 0 ? `⏰ ${timer} second${timer>1?'s':''} left!` : 'Time ran out! Sorry! 🤷'}</p>
-        <Link to={`/:${index}`}
+        <Link to={`/products/${index}`}
           onClick={(e) =>handleClick(e)}
         >
           <button

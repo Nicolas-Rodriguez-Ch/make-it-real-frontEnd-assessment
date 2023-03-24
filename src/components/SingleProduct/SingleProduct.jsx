@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import './SingleProduct.css'
 
 const SingleProduct = () => {
-  const productId = useParams().productId.replace(':','');
+  const productId = useParams().id
   const singleItem = useSelector(state => state.productReducer.data[productId]);
 
   if (!singleItem) {
