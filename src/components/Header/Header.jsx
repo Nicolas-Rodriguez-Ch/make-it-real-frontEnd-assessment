@@ -1,4 +1,4 @@
-import './Header.css'
+import './Header.css';
 
 import { NavLink } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const Header = () => {
       <NavLink to={'/'}>Home</NavLink>
       <NavLink to={'/about'}>About</NavLink>
     </div>
-  )
+  );
 }
 
 export default Header;
